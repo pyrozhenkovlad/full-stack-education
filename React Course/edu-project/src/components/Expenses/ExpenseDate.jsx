@@ -1,4 +1,4 @@
-import "./ExpenseDate.css";
+import "../Styles/ExpenseDate.css";
 
 const ExpenseDate = (props) => {
   const { date } = props;

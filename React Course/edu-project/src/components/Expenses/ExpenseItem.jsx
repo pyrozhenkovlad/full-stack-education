@@ -1,5 +1,5 @@
 import ExpenseDate from "./ExpenseDate";
-import "./ExpenseItem.css"
+import "../Styles/ExpenseItem.css";
 
 const ExpenseItem = (props) => {
   const { title, amount, date } = props;
