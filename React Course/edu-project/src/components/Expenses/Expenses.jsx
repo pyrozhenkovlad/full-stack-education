@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Filter from "../Filter/Filter";
-import ExpenseItem from "./ExpenseItem";
+import ExpensesList from "./ExpensesList";
 
 const Expenses = (props) => {
   const { expenses } = props;
@@ -18,15 +18,7 @@ const Expenses = (props) => {
   return (
     <div>
       <Filter selected={filteredYear} onChangeFilter={filterChangeHandler} />
-      {filteredExpenses.map((e) => (
-        <ExpenseItem
-          title={e.title}
-          amount={e.amount}
-          date={e.date}
-          key={e.id}
-          id={e.id}
-        />
-      ))}
+      <ExpensesList filteredExpenses={filteredExpenses}/>
     </div>
   );
 };
