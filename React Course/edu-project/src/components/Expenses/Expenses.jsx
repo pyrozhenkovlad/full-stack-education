@@ -1,33 +1,31 @@
+import { useState } from "react";
+import Filter from "../Filter/Filter";
 import ExpenseItem from "./ExpenseItem";
 
-const Expenses = () => {
-  const expenses = [
-    {
-      id: "e1",
-      title: "Toilet Paper",
-      amount: 94.12,
-      date: new Date(2020, 7, 14),
-    },
-    { id: "e2", title: "New TV", amount: 799.49, date: new Date(2021, 2, 12) },
-    {
-      id: "e3",
-      title: "Car Insurance",
-      amount: 294.67,
-      date: new Date(2021, 2, 28),
-    },
-    {
-      id: "e4",
-      title: "New Desk (Wooden)",
-      amount: 450,
-      date: new Date(2021, 5, 12),
-    },
-  ];
+const Expenses = (props) => {
+  const { expenses } = props;
 
-  return expenses.map((e, i) => (
-    <div key={i}>
-      <ExpenseItem title={e.title} amount={e.amount} date={e.date} />
+  const [filteredYear, setFilteredYear] = useState("2020");
+
+  const filterChangeHandler = (selectedYear) => {
+    setFilteredYear(selectedYear);
+    console.log(selectedYear);
+  };
+
+  return (
+    <div>
+      <Filter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+      {expenses.map((e, i) => (
+        <ExpenseItem
+          title={e.title}
+          amount={e.amount}
+          date={e.date}
+          key={e.id}
+          id={e.id}
+        />
+      ))}{" "}
     </div>
-  ));
+  );
 };
 
 export default Expenses;
