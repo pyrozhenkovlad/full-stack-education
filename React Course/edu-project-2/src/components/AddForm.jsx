@@ -2,19 +2,22 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "../styles/Form.css";
 
-const AddForm = () => {
+const AddForm = (props) => {
   const [enteredUsername, setUsername] = useState("");
   const [enteredAge, setAge] = useState("");
+  const { onAddItem } = props;
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) return;
+    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0)
+      return;
     if (enteredAge < 1) return;
     const item = {
       username: enteredUsername,
       age: enteredAge,
       id: uuidv4(),
     };
+    onAddItem(item);
     setUsername("");
     setAge("");
   };

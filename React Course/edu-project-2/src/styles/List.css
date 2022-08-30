@@ -1,0 +1,11 @@
+.items-container {
+  margin: 30px auto;
+  width: 90%;
+  max-width: 40rem;
+}
+
+.list-item {
+  font-weight: bold;
+  
+  margin: 10px 0px;
+}

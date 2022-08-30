@@ -6,6 +6,7 @@ import { useState } from "react";
 const NewExpense = (props) => {
   const { onAddExpense } = props;
   const [show, setShow] = useState(false);
+  
   const saveExpenseDataHandler = (enteredExpensedata) => {
     const expenseData = {
       ...enteredExpensedata,
